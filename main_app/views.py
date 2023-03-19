@@ -33,5 +33,9 @@ class ProgramCreate(CreateView):
      model = Program   
      fields = '__all__'  
 
+     success_url='/'
+
+     
+
   
      
