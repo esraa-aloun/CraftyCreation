@@ -4,7 +4,7 @@
 <h1>Signup PAGE</h1>
 
 
-<form method="post" action="{% url 'signup' %}">
+<form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn" value="Signup">
