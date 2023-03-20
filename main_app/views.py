@@ -11,6 +11,12 @@ from .models import Program
 def home(request):   
     return render(request, 'home.html')
 
+def about(request):
+    return render(request, 'about.html')
+
+def program(request):
+    return render(request, 'program.html')
+
 def signup(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)

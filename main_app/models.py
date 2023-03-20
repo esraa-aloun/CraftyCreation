@@ -36,9 +36,11 @@ class Program(models.Model):
    level = models.CharField(max_length=51)
    location = models.CharField(max_length=51)
    seats = models.IntegerField()
+   instructor = models.OneToOneField(Profile, on_delete=models.CASCADE)
 
    def get_absolute_url(self):
          return reverse('home')
+        
    
  
     

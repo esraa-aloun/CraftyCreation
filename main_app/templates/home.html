@@ -1,7 +1,112 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Home</h1>
+<!--? this is the bilboard  -->
+<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <a href="{% url 'program' %}">
+      <div class="carousel-item active" id="page1">
+        <img src="https://i.ibb.co/VBTFWj8/anwar-ad.png" class="d-block w-100 "  alt="anwar-ad" id="ad">
+        <div class="carousel-caption d-none d-md-block">
+            <!-- <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p> -->
+        </div>
+        <!-- <h1 class="d-block w-100">hi</h1> -->
+      </div>
+      <div class="carousel-item" id="page1">
+        <img src="https://i.ibb.co/NSFLktM/jehan-ad.png" class="d-block w-100" alt="jehan-ad" id="ad">
+        <!-- <h1 class="d-block w-100">bye</h1> -->
+      </div>
+      <div class="carousel-item" id="page1">
+        <img src="https://i.ibb.co/sV83V9Z/kwther-ad.png" class="d-block w-100" alt="kwther-ad" id="ad">
+        <!-- <h1 class="d-block w-100">hello</h1> -->
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</a>
 
+<!-- header above the cards -->
+<div class="card-header">
+  <h1>Learn more about our programs <br> and Register :)</h1>
 
+</div>
+
+<!-- wrapping the cards to be next to each other -->
+
+<div class="row" id="row" >
+  <!-- this is a card  -->
+  <div class="col-sm-3 mb-3 mb-sm-0">
+        <div class="card" style="width: 18rem; background: #8D99CD;">
+      <div class="card" style="width: 18rem; background: #8D99CD;">
+        <img src="https://i.ibb.co/RgfVVw1/pngwing-com-5.png" class="card-img-top" alt="leather_bag">
+        <div class="card-body">
+          <h5 class="card-title" style=" font-weight: bolder; text-align: center; right: 3px;">Leather bag</h5>
+          <p class="card-text" style=" font-weight: 600;">Learn how to make <span style="color: #009E95;">Leather Bag</span> to put your labtop or ipad inside it.</p>
+          <a href="{% url 'program' %}" class="btn btn-primary" id="learn" >Learn more</a>
+        </div>
+        </div>
+    </div>
+  </div>
+  <!-- this is card 2 -->
+  <div class="col-sm-3 mb-3 mb-sm-0">
+    <div class="card" style="width: 18rem; background: #8D99CD;">
+      <img src="https://i.ibb.co/RgfVVw1/pngwing-com-5.png" class="card-img-top" alt="leather_bag">
+        <div class="card-body">
+          <h5 class="card-title" style=" font-weight: bolder; text-align: center; right: 3px;">Leather bag</h5>
+          <p class="card-text" style=" font-weight: 600;">Learn how to make <span style="color: #009E95;">Leather Bag</span> to put your labtop or ipad inside it.</p>
+          <a href="{% url 'program' %}" class="btn btn-primary" id="learn" >Learn more</a>
+        </div>
+    </div>
+  </div>
+  <!-- this is card 3 -->
+  <div class="col-sm-3 mb-3 mb-sm-0">
+    <div class="card" style="width: 18rem; background: #8D99CD;">
+      <img src="https://i.ibb.co/RgfVVw1/pngwing-com-5.png" class="card-img-top" alt="leather_bag">
+        <div class="card-body">
+          <h5 class="card-title" style=" font-weight: bolder; text-align: center; right: 3px;">Leather bag</h5>
+          <p class="card-text" style=" font-weight: 600;">Learn how to make <span style="color: #009E95;">Leather Bag</span> to put your labtop or ipad inside it.</p>
+          <a href="{% url 'program' %}" class="btn btn-primary" id="learn" >Learn more</a>
+        </div>
+    </div>
+  </div>
+  <!-- this is card 4 -->
+  <div class="col-sm-3 mb-3 mb-sm-0">
+    <div class="card" style="width: 18rem; background: #8D99CD;">
+      <img src="https://i.ibb.co/RgfVVw1/pngwing-com-5.png" class="card-img-top" alt="leather_bag">
+        <div class="card-body">
+          <h5 class="card-title" style=" font-weight: bolder; text-align: center; right: 3px;">Leather bag</h5>
+          <p class="card-text" style=" font-weight: 600;">Learn how to make <span style="color: #009E95;">Leather Bag</span> to put your labtop or ipad inside it.</p>
+          <a href="{% url 'program' %}" class="btn btn-primary" id="learn" >Learn more</a>
+        </div>
+    </div>
+  </div>
+</div> 
+ 
 {% endblock %}
+
+
+<!-- logo's imgs -->
+<!-- <a href="https://ibb.co/jf3Dxqz"><img src="https://i.ibb.co/F38zfcX/Crafty-Creation-1.png" alt="Crafty-Creation-1" border="0"></a> -->
+<!-- <a href="https://ibb.co/bRnXzy0"><img src="https://i.ibb.co/QjGMrqg/Crafty-Creation-3.png" alt="Crafty-Creation-3" border="0"></a> -->
+<!-- <a href="https://ibb.co/6Rs52Nf"><img src="https://i.ibb.co/d0KyS7z/Crafty-Creation21.png" alt="Crafty-Creation21" border="0"></a> -->
+
+<!-- imgs for bilboard -->
+<!-- <img src="https://i.ibb.co/VBTFWj8/anwar-ad.png" alt="anwar-ad" border="0"> -->
+<!-- <a href="https://ibb.co/ZmfhwG0"><img src="https://i.ibb.co/NSFLktM/jehan-ad.png" alt="jehan-ad" border="0"></a> -->
+<!-- <a href="https://ibb.co/KrTyrxJ"><img src="https://i.ibb.co/sV83V9Z/kwther-ad.png" alt="kwther-ad" border="0"></a> -->
+
+<!-- leather bag -->
+<!-- <a href="https://ibb.co/Fh2jjT9"><img src="https://i.ibb.co/RgfVVw1/pngwing-com-5.png" alt="pngwing-com-5" border="0"></a> -->
