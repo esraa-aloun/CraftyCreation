@@ -36,12 +36,18 @@ def signup(request):
     return render(request, "registration/signup.html", context)
 
 class ProgramCreate(CreateView):
-     model = Program   
-     fields = '__all__'  
-
-     success_url='/'
-
+    model = Program   
+    fields = ['name','description','start_date','end_date','duration','level','location','seats']
      
+    def form_valid(self, form):
+        print("saad")
+        form.instance.instructor = self.request.user
+        # logging.debug(self.request.session.get('user_id'))
+        print("user", self.request.user)
+        return super().form_valid(form)
+     
+    success_url='/'
+          
 
   
      

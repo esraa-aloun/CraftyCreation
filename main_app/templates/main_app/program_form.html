@@ -1,56 +1,89 @@
 <style>
-    .addp{
-       background: #BEC6DE;
-       position: absolute; 
-       padding: 20px;
-       left: 30px;
-       box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
-       width: 80%;
-       height: 70%;
+    #form_inpu{
+    display: flex;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    
     }
-    .form-control{
-        text-decoration: none;
+    #form_area{
+      display: grid;
+      grid-template-columns: 100px 700px 100px;
+      margin: 15px;
+
     }
-    .test{
-        text-decoration: none;
-        background: red;
+    #add_btn{
+      
+      position: relative;
+      background: #0D355A;
+      color: white;
+      border-radius: 25px;
+      left: 40%;
+      font-family: 'Inter';
+      font-style: italic;
+    }
+    .card-container{
+      background: #BEC6DE;
+      padding: 20px;
+      border-radius: 13px;
+      box-shadow: 5px 8px 2px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 80%;
+      
+    }
+    .header_program{
+      text-align: center;
+      position: relative;
+      margin: 10px;
+      padding: 3px;
     }
 </style>
 
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Add Program</h1>
+<!-- <h1>Add Program</h1> -->
 <!-- for the instructor to add a new program -->
-
-<div class="input-group mb-3">
-    <form method="post" action="{% url 'addProgram' %}">
-        {% csrf_token %}
-        <!-- <label for="" id="basic-addon1">Your Name</label>
-        {{ form.name }}
-
-        <label for="" id="basic-addon1">Description</label>
-        {{ form.description }}
-        
-        <label for="" id="basic-addon1">Start Date</label>
-        {{ form.start_date }}
-        
-        <label for="" id="basic-addon1">End Date</label>
-        {{ form.end_date }}
-        
-        <label for="" id="basic-addon1">Duration</label>
-        {{ form.duration }}
-        
-        <label for="" id="basic-addon1">Level</label>
-        {{ form.level }}
-        
-        <label for="" id="basic-addon1">Location</label>
-        {{ form.location }}
-        
-        <label for="" id="basic-addon1">Seats</label>
-        {{ form.seats }} -->
-
-      <form>
+<div class="card-container">
+  <h1 class="header_program">Add Program!</h1>
+  <div class="input-group mb-3" id="form_inpu">
+      <form method="post" action="{% url 'addProgram' %}">
+          {% csrf_token %}
+          <div class="form_inp" id="form_area">
+            <label for="exampleFormControlTextarea1" id="basic-addon1">Program Title</label>
+            {{ form.name }}
+          </div>
+          <div class="form_inp" id="form_area">
+            <label for="exampleFormControlTextarea1" id="basic-addon1">Description</label>
+            {{ form.description }}
+          </div>
+            <div class="form_inp" id="form_area">
+            <label for="" id="basic-addon1">Start Date</label>
+          {{ form.start_date }}
+          </div>
+          <div class="form_inp" id="form_area">
+            <label for="" id="basic-addon1">End Date</label>
+            {{ form.end_date }}
+          </div>
+          <div class="form_inp" id="form_area">
+            <label for="" id="basic-addon1">Duration</label>
+            {{ form.duration }}
+          </div>
+          <div class="form_inp" id="form_area">
+            <label for="" id="basic-addon1">Level</label>
+            {{ form.level }}
+          </div>
+          <div class="form_inp" id="form_area">
+            <label for="inputAddress" id="basic-addon1">Location</label>
+            {{ form.location }}
+          </div>
+          <div class="form_inp" id="form_area">
+            <label for="" id="basic-addon1">Seats</label>
+            {{ form.seats }}
+          </div>
+      <!-- <form>
         <div class="form-group">
           <label for="name">Name:</label>
         <div class="test">
@@ -67,7 +100,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-    </div>
+    </div> -->
         
 
         
@@ -108,6 +141,8 @@
             <textarea class="form-control" aria-label="With textarea"></textarea>
           </div> -->
         
-        <input type="submit" class="btn" value="Add">
+        <input type="submit" class="btn" value="Add Program" id="add_btn">
     </form>
+</div>
+
 {% endblock %}
