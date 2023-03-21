@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic import ListView
 from django.urls import reverse
 from .models import Program, Profile, RegisteredStudent
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -37,6 +38,15 @@ def signup(request):
     context = {"form": form}
     return render(request, "registration/signup.html", context)
 
+@login_required
+def profile(request):
+    user= request.user
+    
+    return render(request, 'profile.html' , 
+    {'user':user ,
+     'profile': profile,
+    })
+
 class ProgramCreate(CreateView):
     model = Program   
     fields = ['name','description','start_date','end_date','duration','level','location','seats']
@@ -65,14 +75,10 @@ def Register_Student_Into_Program(request, program_id):
     student = request.user
     print(student)
     program = Program.objects.get(id = program_id)
-
     studentProgram = RegisteredStudent(program_id = program, student_id= student)
     studentProgram.save()
     program.seats -= 1
-    
     program.save()
-    
-    
     
         
     return render(request, 'home.html', {'message': 'You joined the class successfully!'})
