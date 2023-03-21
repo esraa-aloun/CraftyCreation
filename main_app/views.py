@@ -69,6 +69,7 @@ def Register_Student_Into_Program(request, program_id):
     studentProgram = RegisteredStudent(program_id = program, student_id= student)
     studentProgram.save()
     program.seats -= 1
+    
     program.save()
     
     
