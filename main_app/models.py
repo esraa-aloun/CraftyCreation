@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
+
  
 # Create your models here.
 GENDER = (
@@ -37,9 +38,21 @@ class Program(models.Model):
    location = models.CharField(max_length=51)
    seats = models.IntegerField()
    instructor = models.ForeignKey(Profile, on_delete=models.CASCADE)
+   #students = models.ManyToManyField('Profile')
 
    def get_absolute_url(self):
          return reverse('home')
+
+class RegisteredStudent(models.Model):
+    program_id = models.ForeignKey(Program, on_delete=models.CASCADE)
+    student_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+
+
+
+
+
+
         
    
  
