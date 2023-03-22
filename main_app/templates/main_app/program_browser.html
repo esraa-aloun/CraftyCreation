@@ -1,51 +1,89 @@
-<!-- for the student, 'add me' as button to reqister, no need for a form -->
-{% extends 'base.html' %}
-{% block content %}
-
-<form class="d-flex" id="searchdiv">
-    <input class="border border-3 border-top-0 border-start-0 border-end-0" type="search" placeholder="Search"
-      aria-label="Search" style=" outline: none;" id="search">
-    <!-- <button class="btn btn-primary" type="submit" id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i> </button> -->
-  </form>
-
-  <form action="/item/index" method="get" class="dropdown d-flex align-items-baseline addItem">
-    <label for="sort">Sort by </label>
-    <select name="sort" id="">
-        <option value="empty"></option>
-        <option value="Kids">Kids</option>
-        <option value="Adults">Adults</option>
-    </select>
-    <label for="category">Category </label>
-    <select name="category" id="">
-        <option value="all">All</option>
-        <option value="Crochet">Crochet</option>
-        <option value="Textile">Textile</option>
-        <option value="Beadwork">Beadwork and Jewelry Making</option>
-        <option value="Pottery">Pottery</option>
-    </select>
-    <label for="condition">Condition </label>
-    <select name="condition" id="">
-        <option value="all">all</option>
-        <option value="Highest-rate">Highest Rate</option>
-        <option value=""></option>
-        <option value=""></option>
-    </select>
-    <input type="submit" value="filter" class="btn btn-secondary my-2">
-</form>
-</div>
-{% for program in program_list %}
-    <a href="{% url 'joinProgram' program.id %}">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">{{ program.name }}</span>
-               
-            </div>
-        </div>
-    </a>
-{% endfor %}
-
-
-</div>
-</section>
-
-{% endblock %}
+<style>
+    #card{
+           background: #8D98CD;
+           padding: 50px;
+           /* width: 100%; */
+           border-radius: 30px;
+           box-shadow: 5px 8px 2px rgba(0, 0, 0, 0.5);
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           flex-direction: column;
+       }
+       #row2{
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           align-items: center;
+       }
+   </style>
+   
+   <!-- for the student, 'add me' as button to reqister, no need for a form -->
+   {% extends 'base.html' %}
+   {% block content %}
+   
+   <form class="d-flex" id="searchdiv">
+       <input class="border border-3 border-top-0 border-start-0 border-end-0" type="search" placeholder="Search"
+         aria-label="Search" style=" outline: none;" id="search">
+       <!-- <button class="btn btn-primary" type="submit" id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i> </button> -->
+     </form>
+   
+     <form action="/item/index" method="get" class="dropdown d-flex align-items-baseline addItem">
+       <label for="sort">Sort by </label>
+       <select name="sort" id="">
+           <option value="empty"></option>
+           <option value="Kids">Kids</option>
+           <option value="Adults">Adults</option>
+       </select>
+       <label for="category">Category </label>
+       <select name="category" id="">
+           <option value="all">All</option>
+           <option value="Crochet">Crochet</option>
+           <option value="Textile">Textile</option>
+           <option value="Beadwork">Beadwork and Jewelry Making</option>
+           <option value="Pottery">Pottery</option>
+       </select>
+       <label for="condition">Condition </label>
+       <select name="condition" id="">
+           <option value="all">all</option>
+           <option value="Highest-rate">Highest Rate</option>
+           <option value=""></option>
+           <option value=""></option>
+       </select>
+       <input type="submit" value="filter" class="btn btn-secondary my-2">
+   </form>
+   </div>
+   <!-- <div class="row" id="row2">
+       {% for program in program_list %}
+       <div class="card-body" id="card">
+           <a href="">
+               <div class="card" id="card">
+                   <div class="card-content">
+                       <span class="card-title">{{ program.name }}</span>
+                       <hr>
+                       <span class="test">{{ program.description }}</span>
+                   </div>
+               </div>
+           </a>
+       </div>
+   </div> -->
+   <!-- {% endfor %}
+   
+   
+   </div>
+   </section> -->
+   
+       <div class="row" id="row2">
+               {% for program in program_list %}
+               <div class="col-sm-4">
+                   <div class="card-body" id="card">
+                       <h3 class="card-title" id="title">{{ program.name }}</h3>
+                       <hr>
+                       <p class="card-text"> {{ program.start_date }} - {{ program.end_date }}</p>
+                       <p class="card-text"><span>Level: </span>{{ program.level }} <span>Duration: </span>{{ program.duration }} <span></span></p>
+                       <div class="btn_wrapper">   
+                       </div>
+                   </div>
+               </div>
+           {% endfor %}
+   {% endblock %}
