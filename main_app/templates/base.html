@@ -1,3 +1,18 @@
+<style>
+  #nav{
+    background: rgba(255,255,255,0.4);
+    font-size: 17px;
+    transition: margin 0.2s ease-in-out;
+  }
+  #nav_hov:hover{
+    color: rgba(151, 161, 250);
+    margin-top: -2px;
+  }
+  #nav_hov.active{
+    color: #437db3;
+    margin-top: -2px;
+  }
+</style>
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +27,7 @@
     <script src="https://kit.fontawesome.com/dcf053b3e8.js" crossorigin="anonymous"></script>
 </head>
 <body class="body">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="nav">
         <div class="container-fluid">
           <!-- <a class="navbar-brand" href="{% url 'home' %}"><img src="static\css\images\Crafty Creation-1.png" alt="logo" class="logo"></a> -->
           <a class="navbar-brand" href="{% url 'home' %}"><img src="https://i.ibb.co/F38zfcX/Crafty-Creation-1.png" alt="Crafty-Creation-1" class="logo"></a>
@@ -25,40 +40,40 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
+                <a class="nav-link" href="{% url 'about' %}" id="nav_hov">About</a>
               </li>
               {% if user.is_authenticated %}
               <!-- common -->
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                <a class="nav-link" href="{% url 'profile' %}" id="nav_hov">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'logout' %}" id="nav_hov">Logout</a>
               </li> 
               <!-- student -->
                {% if user.userRole == "S" %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'program' %}">Programs</a>
+                  <a class="nav-link" href="{% url 'program' %}" id="nav_hov">Programs</a>
                 </li>        
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'my_programs' %}">Joined Programms</a>
+                  <a class="nav-link" href="{% url 'my_programs' %}" id="nav_hov">Joined Programms</a>
                 </li>
                {% endif %}
               <!-- instructor -->
                {% if user.userRole == "I" %}
                <li class="nav-item">
-                <a class="nav-link" href="{% url 'programForInstructor' %}">My Programms</a>
+                <a class="nav-link" href="{% url 'programForInstructor' %}" id="nav_hov">My Programms</a>
               </li>              
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'addProgram' %}">Add Program</a>
+                <a class="nav-link" href="{% url 'addProgram' %}" id="nav_hov">Add Program</a>
               </li>
               {% endif %}
               {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+                <a class="nav-link" href="{% url 'signup' %}" id="nav_hov">SignUp</a>
               </li>              
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'login' %}" id="nav_hov">Login</a>
               </li>
               {% endif %}
             </ul>
