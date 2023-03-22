@@ -15,6 +15,9 @@ from django.http import HttpResponse
 from .models import Profile
 from django.contrib import messages
 from django.urls import reverse_lazy
+# Impoting datepciker form
+from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget
+
 
 
 # Change password 
@@ -71,10 +74,18 @@ class ProgramCreate(CreateView):
     model = Program   
     fields = ['name','description','start_date','end_date','duration','level','location','seats']
      
+    def get_form(self, form_class=None):
+        form = super(ProgramCreate, self).get_form(form_class)
+        
+        form.fields['start_date'].widget = AdminDateWidget(attrs={'type': 'date'})
+        form.fields['end_date'].widget = AdminDateWidget(attrs={'type': 'date'})
+        return form
+    
     def form_valid(self, form):
         form.instance.instructor = self.request.user
         # logging.debug(self.request.session.get('user_id'))
         return super().form_valid(form)
+
     
     # success_url= reverse_lazy['home']
     # success_msg = 'nono'
