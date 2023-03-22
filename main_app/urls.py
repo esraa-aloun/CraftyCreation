@@ -18,5 +18,7 @@ urlpatterns =[
     path('my_programs/', views.My_Programs.as_view(), name='my_programs'),
     path('addProgram/', views.ProgramCreate.as_view(), name='addProgram'),
     path('accounts/change_password/',PasswordChangeView.as_view(template_name='registration/change_password.html'), name ='change_password'),
-
+    path('program/<int:pk>/update',views.ProgramUpdate.as_view(), name='program_update'),
+    path('program/<int:pk>/delete',views.ProgramDelete.as_view(), name='program_delete'),
 ]
+

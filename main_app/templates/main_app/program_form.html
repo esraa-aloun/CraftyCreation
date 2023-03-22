@@ -47,7 +47,11 @@
 <!-- <h1>Add Program</h1> -->
 <!-- for the instructor to add a new program -->
 <div class="card-container">
+  {%if object%}
+  <h1 class="header_program">Edit Program!</h1>
+  {%else%}
   <h1 class="header_program">Add Program!</h1>
+  {%endif%}
   <div class="input-group mb-3" id="form_inpu">
       <form method="post" action="{% url 'addProgram' %}">
           {% csrf_token %}
@@ -141,8 +145,13 @@
             <textarea class="form-control" aria-label="With textarea"></textarea>
           </div> -->
         
-        <input type="submit" class="btn" value="Add Program" id="add_btn">
+          {%if object%}
+          <input type="submit" class="btn" value="Edit a program" id="add_btn">
+          {%else%}
+          <input type="submit" class="btn" value="Add Program" id="add_btn">
+          {%endif%}
     </form>
 </div>
+
 
 {% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from main_app.forms import UserCreationForm
 from django.contrib.auth import login
 import logging
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic import ListView
 from django.urls import reverse
 from .models import Program, Profile, RegisteredStudent
@@ -124,6 +124,15 @@ def Register_Student_Into_Program(request, program_id):
     program.save()        
     return render(request, 'home.html', {'message': 'You joined the class successfully!'})
 
+#  Update program "Ahlam"
+class ProgramUpdate(UpdateView):
+  model = Program
+  fields = ['name','description','start_date','end_date','duration','level','location','seats']
+
+class ProgramDelete(DeleteView):
+  model = Program
+  success_url='/'
+
 
 
 class My_Programs(ListView):
@@ -144,35 +153,26 @@ class My_Programs(ListView):
         return context
     
 
-class student_list(ListView):
-    template_name = 'main_app/student_list.html'
-    model = RegisteredStudent
+# class student_list(ListView):
+#     template_name = 'main_app/student_list.html'
+#     model = RegisteredStudent
 
-    def get_context_data(self,**kwargs):    
-    # def student_list(request, program_id):
-        print("done")
-        # context = super().get_context_data(**kwargs)
-        context=super(student_list,self).get_context_data(**kwargs)
-        print('pid', kwargs.get('passed_program_id', None))
-        print('pid', kwargs(passed_program_id))
-        joined_students = RegisteredStudent.objects.filter(program_id_id = kwargs('passed_program_id')).values('student_id')
-        print(joined_students)
-        students=[]
-        for i in joined_students:
-            print(i['student_id'])
-            s_id = i['student_id']
-            students.append(Program.objects.get(id = s_id ))
-            print(students)      
-            context['student_list'] = students
-            return context
+#     def get_context_data(self,**kwargs):    
+#     # def student_list(request, program_id):
+#         print("done")
+#         # context = super().get_context_data(**kwargs)
+#         context=super(student_list,self).get_context_data(**kwargs)
+#         print('pid', kwargs.get('passed_program_id', None))
+#         print('pid', kwargs(passed_program_id))
+#         joined_students = RegisteredStudent.objects.filter(program_id_id = kwargs('passed_program_id')).values('student_id')
+#         print(joined_students)
+#         students=[]
+#         for i in joined_students:
+#             print(i['student_id'])
+#             s_id = i['student_id']
+#             students.append(Program.objects.get(id = s_id ))
+#             print(students)      
+#             context['student_list'] = students
+#             return context 
 
-
-  
-
-
-
-
-
-
-  
      
