@@ -11,7 +11,6 @@ GENDER = (
     ('M','Male')
 )
 class UserCreationForm(UserCreationForm):
-    # userRole = forms.CharField(max_length=1)
     userRole = forms.ChoiceField(
            choices= UserRoles
         )
@@ -20,7 +19,6 @@ class UserCreationForm(UserCreationForm):
          choices= GENDER)
     age = forms.IntegerField()
     category = forms.CharField(max_length=50)
-    # certification = forms.FileField(max_length=100)
     email = forms.EmailField(label='Email')
       
 
@@ -37,6 +35,6 @@ class UserCreationForm(UserCreationForm):
         return user
     
 
-#  upload file form
+# upload file form
 class UploadFileForm(forms.Form):
     file= forms.FileField()
