@@ -134,8 +134,12 @@ button{
                   
                   <h4>{{user.username}}</h4>
                   <!-- User Role -->
-                  <p>{{user.userRole}}</p>
-                                                                   
+                  {% if user.userRole == 'I'%}
+                    <p>Instructor</p>
+                  {% else %}
+                  <p>Student</p>
+                  {% endif %}
+                                                                
                 </div>
               </div>
           
@@ -201,7 +205,6 @@ button{
 
   </div>
 
-</div>
-          
+</div>          
            
 {% endblock %}
