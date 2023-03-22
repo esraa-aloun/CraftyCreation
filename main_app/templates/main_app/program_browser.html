@@ -83,6 +83,12 @@
                        <p class="card-text"><span>Level: </span>{{ program.level }} <span>Duration: </span>{{ program.duration }} <span></span></p>
                        <div class="btn_wrapper">   
                        </div>
+                       {%if  program.seats == 0 %}
+                       <span class="badge text-bg-danger">Fully Booked</span>
+                        {%else%}
+                        <a href="{% url 'joinProgram' program.id %}" class="badge text-bg-success">Join a program</a>
+                        
+                        {%endif%}
                    </div>
                </div>
            {% endfor %}

@@ -68,8 +68,8 @@
                 <p class="card-text">{{ program.description }}</p>
                 <p class="card-text"><span>Level: </span>{{ program.level }} <br> <span>Duration: </span>{{ program.duration }} <span></span></p>
                 <div class="btn_wrapper">
-                    <a href="#" class="btn btn-primary" id="btn_D"><i class="fa-solid fa-trash"></i></a>
-                    <a href="#" class="btn btn-primary" id="btn_D"><i class="fa-solid fa-pen"></i></a>
+                    <a href="{% url 'program_delete' program.id %}" class="btn btn-primary" id="btn_D"><i class="fa-solid fa-trash"></i></a>
+                    <a href="{% url 'program_update' program.id %}" class="btn btn-primary" id="btn_D"><i class="fa-solid fa-pen"></i></a>
                     <a href="{% url 'studentList' program.id %}" class="btn btn-primary" id="btn_D" style="width: 150px;"><i class="fa-solid fa-list" style="margin-right: 10px;"></i>  Student List</a>
                     
                 </div>
