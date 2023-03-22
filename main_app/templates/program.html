@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form class="d-flex" id="searchdiv">
+    <input class="border border-3 border-top-0 border-start-0 border-end-0" type="search" placeholder="Search"
+      aria-label="Search" style=" outline: none;" id="search">
+    <!-- <button class="btn btn-primary" type="submit" id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i> </button> -->
+  </form>
+
+  <form action="/item/index" method="get" class="dropdown d-flex align-items-baseline addItem">
+    <label for="sort">Sort by </label>
+    <select name="sort" id="">
+        <option value="empty"></option>
+        <option value="Kids">Kids</option>
+        <option value="Adults">Adults</option>
+    </select>
+    <label for="category">Category </label>
+    <select name="category" id="">
+        <option value="all">All</option>
+        <option value="Crochet">Crochet</option>
+        <option value="Textile">Textile</option>
+        <option value="Beadwork">Beadwork and Jewelry Making</option>
+        <option value="Pottery">Pottery</option>
+    </select>
+    <label for="condition">Condition </label>
+    <select name="condition" id="">
+        <option value="all">all</option>
+        <option value="Highest-rate">Highest Rate</option>
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+    <input type="submit" value="filter" class="btn btn-secondary my-2">
+</form>
+</div>
+</div>
+</section>
+
+{% endblock %}
