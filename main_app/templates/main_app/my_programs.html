@@ -1,8 +1,67 @@
-{% extends 'base.html' %}
-{% block content %}
-
-{% for program in  program_list %}
- <p> {{program.name}} </p>
-{% endfor %}
-
-{% endblock %}
+<style>
+    #card{
+           background: #8D98CD;
+           padding: 10%;
+           /* width: 100%; */
+           border-radius: 30px;
+           box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.1);
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           flex-direction: column;
+           transition: margin 0.2s ease-in-out;
+       }
+       #card:hover{
+           margin-top: -1px;
+           /* background: #757eab; */
+           box-shadow: 5px 8px 2px rgba(0, 0, 0, 0.5);
+       }
+       #row2{
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           align-items: center;
+       }
+       .btn_wrapper{
+           display: flex; 
+           flex-direction: row;
+          align-items: center;
+   
+       }
+       #title{
+           font-family: 'Roboto', sans-serif;
+           font-weight: 800;
+           text-align: left;
+       }
+       #btn_D{
+           margin: 15px;
+           position: relative;
+           width: 100px;
+           top: 50px;
+           left: 35%;
+           background: #39556F;
+           border: 0px transparent;
+           font-weight: bold;
+           box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
+       }
+   
+   </style>
+   
+   {% extends 'base.html' %}
+   {% block content %}
+   <div class="row" id="row2">
+       {% for program in program_list %}
+       <div class="col-sm-6">
+           <div class="card-body" id="card">
+               <h3 class="card-title" id="title">{{ program.name }}</h3>
+               <hr>
+               <p class="card-text"> {{ program.start_date }} - {{ program.end_date }}</p>
+               <p class="card-text">{{ program.description }}</p>
+               <p class="card-text"><span>Level: </span>{{ program.level }} <span>Duration: </span>{{ program.duration }} <span></span></p>
+               <div class="btn_wrapper">
+                   <a href="#" class="btn btn-primary" id="btn_D">Drop?</i></a>
+               </div>
+           </div>
+       </div>
+   {% endfor %}
+   {% endblock %}

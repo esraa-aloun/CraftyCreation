@@ -27,14 +27,21 @@ class Profile(AbstractUser):
     age = models.IntegerField(default =False)
     category = models.CharField(max_length=50, default =False)
     
-
+LEVELS = (
+    ('Beginner','Beginner'),
+    ('Intermediate','Intermediate'),
+    ('Expert','Expert')
+)
 class Program(models.Model):
    name = models.CharField(max_length=51)
    description = models.CharField(max_length=101)
    start_date = models.DateField()
    end_date = models.DateField()
    duration = models.CharField(max_length=51)
-   level = models.CharField(max_length=51)
+   level = models.CharField(
+       max_length=12,
+       choices= LEVELS,
+       default= [0][0])
    location = models.CharField(max_length=51)
    seats = models.IntegerField()
    instructor = models.ForeignKey(Profile, on_delete=models.CASCADE)

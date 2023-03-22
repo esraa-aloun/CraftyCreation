@@ -71,6 +71,11 @@ class ProgramBrowse(ListView):
     template_name = 'main_app/program_browser.html'
     model = Program
 
+# def decide_the_userRole(request):
+#     profile = Profile.objects.get(user=request.user)
+#     context = {'profile': profile}
+#     return render(request, 'base.html', context)
+
 
 def Register_Student_Into_Program(request, program_id):
     student = request.user
