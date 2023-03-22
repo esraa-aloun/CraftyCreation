@@ -1,0 +1,41 @@
+<style>
+    .containerlist{
+      position: relative;
+      background: #8D98CD;
+      margin: 30px;
+      box-shadow: 5px 8px 2px rgba(0, 0, 0, 0.1);
+      /* align-items: center; */
+      padding: 150px;
+  
+    }
+    .list-group{
+      position: relative;
+      /* align-items: center; */
+      /* justify-content: center; */
+    }
+   
+</style>
+{% extends 'base.html'%}
+{% block content %}
+  
+  <div class="containerlist">
+    <!-- {for loop} -->
+  <table class="table table-success table-striped " id="color">
+    <tr>
+      <th>Student name</th>
+      <th> Email</th>
+      <th> Age</th>
+      <th> Gender</th>
+    </tr>
+    <!-- begining for the loop -->
+    <tr>
+      <td>ali</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    
+  </table>
+  <!-- {{ endfor }} -->
+  </div>
+  {% endblock %}

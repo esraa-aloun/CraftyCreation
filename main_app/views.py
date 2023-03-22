@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from main_app.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib import messages
 import logging
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView
@@ -14,6 +13,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import UploadFileForm
 from django.http import HttpResponse
 from .models import Profile
+from django.contrib import messages
+from django.urls import reverse_lazy
+
 
 # Change password 
 from django.contrib.auth.forms import UserCreationForm ,PasswordChangeForm
@@ -26,9 +28,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')
-
-# def program(request):
-#     return render(request, 'program.html')
 
 # view the profile and upload the file 
 @login_required
@@ -76,8 +75,9 @@ class ProgramCreate(CreateView):
         form.instance.instructor = self.request.user
         # logging.debug(self.request.session.get('user_id'))
         return super().form_valid(form)
-     
-    success_url='/'
+    
+    # success_url= reverse_lazy['home']
+    # success_msg = 'nono'
 
 #  Uplaoding certificate
 def upload_file(request):
@@ -143,36 +143,31 @@ class My_Programs(ListView):
         context['program_list'] = programs
         return context
     
-    # def get_queryset(self):
-        
-    #     # return RegisteredStudent.objects.filter(student_id_id = self.request.user).values('program_id')
-    #     joined_program = RegisteredStudent.objects.filter(student_id_id = self.request.user).values('program_id')
-    #     #print(joined_program) #<QuerySet [{'program_id': 1}, {'program_id': 5}, {'program_id': 6}]>
-    #     programs =[]
-    #     for i in joined_program:
-    #         print(i['program_id'])
-    #         p_id = i['program_id']
-    #         programs.append(Program.objects.get(id = p_id ))
-    #     print(programs)
-    #     return programs
+
+class student_list(ListView):
+    template_name = 'main_app/student_list.html'
+    model = RegisteredStudent
+
+    def get_context_data(self,**kwargs):    
+    # def student_list(request, program_id):
+        print("done")
+        # context = super().get_context_data(**kwargs)
+        context=super(student_list,self).get_context_data(**kwargs)
+        print('pid', kwargs.get('passed_program_id', None))
+        print('pid', kwargs(passed_program_id))
+        joined_students = RegisteredStudent.objects.filter(program_id_id = kwargs('passed_program_id')).values('student_id')
+        print(joined_students)
+        students=[]
+        for i in joined_students:
+            print(i['student_id'])
+            s_id = i['student_id']
+            students.append(Program.objects.get(id = s_id ))
+            print(students)      
+            context['student_list'] = students
+            return context
 
 
-        
-
-
-
-
-
-      
-        #my_prog=[]
-        #for program in joined_program:
-           # my_prog.append(Program.objects.filter(id = program['program_id']))
-        #print(my_prog)
-        #return joined_program
-            # program['program_id']
-            # program = Program.objects.filter(id = joined_program.program_id_id)
-        # program = Program.objects.filter(id = joined_program.program_id_id)
-        # print(program)
+  
 
 
 
