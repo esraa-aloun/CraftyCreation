@@ -25,7 +25,8 @@ class Profile(AbstractUser):
         )
     age = models.IntegerField(default =False)
     category = models.CharField(max_length=50, default =False)
-    #certification = models.FileField(max_length=100,default ='default_file.txt',upload_to='uploads/certifications' )
+    # uploading the instructer certificate
+    # certification = models.FileField(default ='',upload_to='main_app/static/uploads' )
 
 class Program(models.Model):
    name = models.CharField(max_length=51)

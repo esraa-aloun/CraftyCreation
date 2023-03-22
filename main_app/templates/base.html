@@ -27,7 +27,7 @@
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">Profile</a>
+                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'program' %}">Programs</a>
@@ -35,7 +35,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'addProgram' %}">Add Program</a>
               </li>
-            </ul>
+              <li class="nav-item">
+              <a class="nav-link" href="{%url 'login'%}">login</a>
+            </li>
+              </ul>
           </div>
         </div>
       </nav>

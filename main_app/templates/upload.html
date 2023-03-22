@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block content%}
+<form action="{%url 'upload'%}" enctype="multipart/form-data" method="POST">
+    
+    {% csrf_token %}
+    <table>
+        {{form.file}}
+        
+    </table>
+
+      <input type="submit" value="Upload" class="btn">
+</form>
+
+
+
+   
+
+{%endblock%}  

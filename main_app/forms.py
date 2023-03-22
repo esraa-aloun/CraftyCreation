@@ -35,3 +35,8 @@ class UserCreationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+    
+
+#  upload file form
+class UploadFileForm(forms.Form):
+    file= forms.FileField()
