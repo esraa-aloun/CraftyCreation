@@ -7,8 +7,17 @@ from django.views.generic.edit import CreateView
 from django.views.generic import ListView
 from django.urls import reverse
 from .models import Program, Profile, RegisteredStudent
-from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from .models import Program
+from django.contrib.auth.decorators import login_required
+# Imports for uploading file
+from .forms import UploadFileForm
+from django.http import HttpResponse
+from .models import Profile
+
+# Change password 
+from django.contrib.auth.forms import UserCreationForm ,PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeDoneView
 
 
 # Create your views here.
@@ -20,6 +29,17 @@ def about(request):
 
 # def program(request):
 #     return render(request, 'program.html')
+
+# view the profile and upload the file 
+@login_required
+def profile(request):
+    user= request.user
+    
+    return render(request, 'profile.html' , 
+    {'user':user ,
+     'profile': profile,
+    })
+
 
 def signup(request):
     if request.method == "POST":
@@ -58,6 +78,23 @@ class ProgramCreate(CreateView):
         return super().form_valid(form)
      
     success_url='/'
+
+#  Uplaoding certificate
+def upload_file(request):
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = request.FILES['file']
+            user_id = form.cleaned_data['profile_id']
+            user = Profile.objects.get(id=user_id)
+            user.certification = file
+            user.save()
+            return HttpResponse(str(file))
+    else:
+        form = UploadFileForm()
+    return render(request, 'upload.html', {'form': form})
+
+
           
 class ProgramList(ListView):
     model = Program

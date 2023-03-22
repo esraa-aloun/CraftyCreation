@@ -1,6 +1,10 @@
 from django.urls import path 
 # from route import views
 from . import views 
+
+# import chagne view
+from django.contrib.auth.views import PasswordChangeView , PasswordChangeDoneView
+
 urlpatterns =[
     path('', views.home, name='home' ),
     path('about/', views.about, name='about'),   
@@ -10,5 +14,7 @@ urlpatterns =[
     path('program/', views.ProgramBrowse.as_view(), name='program'),
     path('programForInstructor/', views.ProgramList.as_view(), name='programForInstructor'),
     path('my_programs/', views.My_Programs.as_view(), name='my_programs'),
-    path('addProgram/', views.ProgramCreate.as_view(), name='addProgram')
+    path('addProgram/', views.ProgramCreate.as_view(), name='addProgram'),
+    path('accounts/change_password/',PasswordChangeView.as_view(template_name='registration/change_password.html'), name ='change_password'),
+
 ]
