@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for program in  program_list %}
+ <p> {{program.name}} </p>
+{% endfor %}
+
+{% endblock %}

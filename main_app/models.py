@@ -26,7 +26,7 @@ class Profile(AbstractUser):
         )
     age = models.IntegerField(default =False)
     category = models.CharField(max_length=50, default =False)
-    #certification = models.FileField(max_length=100,default ='default_file.txt',upload_to='uploads/certifications' )
+    
 
 class Program(models.Model):
    name = models.CharField(max_length=51)
@@ -39,6 +39,7 @@ class Program(models.Model):
    seats = models.IntegerField()
    instructor = models.ForeignKey(Profile, on_delete=models.CASCADE)
    #students = models.ManyToManyField('Profile')
+
 
    def get_absolute_url(self):
          return reverse('home')

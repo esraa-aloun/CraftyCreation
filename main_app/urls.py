@@ -9,5 +9,6 @@ urlpatterns =[
     path('profile/', views.profile, name='profile'),  
     path('program/', views.ProgramBrowse.as_view(), name='program'),
     path('programForInstructor/', views.ProgramList.as_view(), name='programForInstructor'),
+    path('my_programs/', views.My_Programs.as_view(), name='my_programs'),
     path('addProgram/', views.ProgramCreate.as_view(), name='addProgram')
 ]
