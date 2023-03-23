@@ -1,7 +1,7 @@
 <style>
     body{
     margin-top:1px;
-    color: #1a202c;
+    color: #385ca4;
     text-align: left;
     background-color:#BEC6DE;    
 }
@@ -150,7 +150,11 @@ button{
               <h6 class="mb-0">Gender</h6>
              </div>
             <div class="col-sm-9 text-secondary">
-              {{user.gender}}
+              {% if user.gender ==  'F'%}
+               <p>Female</p>
+              {% else %}
+               <p>Male</p>
+              {% endif %}
             </div>
           </div>
           <hr>
@@ -164,16 +168,16 @@ button{
             </div>
           </div>
           <hr>
-          <div class="row" style="background-color: #8D99CD ;" >
+          <!-- <div class="row" style="background-color: #8D99CD ;" >
             <div class="col-sm-3">
-            <!-- Mobile phone -->
+           
               <h6 class="mb-0">Mobile</h6>
             </div>
             <div class="col-sm-9 text-secondary">
               973 35013324
             </div>
           </div>
-          <hr>
+          <hr> -->
           <div class="row" style="background-color: #8D99CD ;" >
             <div class="col-sm-3">
                 <!-- Email -->
@@ -187,9 +191,9 @@ button{
           <hr>
           <div>
               <!-- Upload Image -->
-          <button class="btn btn-secondary" >Upload Image</button>
-          <!-- Edit profile -->
-          <button class="btn btn-secondary">Edit profile</button>
+          <!-- <button class="btn btn-secondary" >Upload Image</button>
+         
+          <button class="btn btn-secondary">Edit profile</button> -->
           <!-- Change password -->
           <a href="{%url 'change_password'%}" class="btn btn-secondary">Change password</a>
 

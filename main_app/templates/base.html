@@ -82,6 +82,13 @@
       </nav>
 
     <main class="container">
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+              <li style='color: red;;'{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
         {% block content %}
         {% endblock %}
     </main>
@@ -89,7 +96,13 @@
     <footer class="page-footer">
         <div class="footer">All Rights Reserved, &copy; Bahraini's Work </div>
     </footer> -->
-
+    <script>
+      setTimeout(function(){
+        if ($('#msg').length>0){
+          $('#msg').remove();
+        }
+      },4000)
+    </script>
     <!--? bootstrab  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

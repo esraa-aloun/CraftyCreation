@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 <!--? this is the bilboard  -->
 <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -94,6 +102,14 @@
     </div>
   </div>
 </div> 
+
+<script>
+  setTimeout(function(){
+    if ($('#msg').length>0){
+      $('#msg').remove();
+    }
+  },5000)
+</script>
  
 {% endblock %}
 

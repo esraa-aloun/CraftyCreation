@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'CraftyCreation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alounesraa/Crafty_Creation',
+        'NAME': 'alounesraa/Crafty_Creations',
         'USER': 'alounesraa',
         'HOST': 'db.bit.io',
-        'PASSWORD': 'v2_42Fan_vHVCqTVSSk8QD5B95yuepRm'
+        'PASSWORD': 'v2_42Pxi_GWpRjYKaW7brxZ72xBYXCRR'
     }
 }
 

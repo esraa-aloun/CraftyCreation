@@ -19,14 +19,12 @@ class UserCreationForm(UserCreationForm):
     gender = forms.ChoiceField(
          choices= GENDER)
     age = forms.IntegerField()
-    category = forms.CharField(max_length=50)
-    # certification = forms.FileField(max_length=100)
     email = forms.EmailField(label='Email')
       
 
     class Meta:
         model = Profile
-        fields = ["username", "email", "password1", "password2","userRole","gender","age","category"]
+        fields = ["username", "email", "password1", "password2","userRole","gender","age"]
         #fields = '__all__'
 
     def save(self, commit=True):
@@ -37,6 +35,6 @@ class UserCreationForm(UserCreationForm):
         return user
     
 
-#  upload file form
-class UploadFileForm(forms.Form):
-    file= forms.FileField()
+# #  upload file form
+# class UploadFileForm(forms.Form):
+#     file= forms.FileField()
