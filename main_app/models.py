@@ -35,7 +35,7 @@ LEVELS = (
     ('Expert','Expert')
 )
 # CATEGORIES = (
-#     ('','')
+#     ('Candel Making','')
 # )
 class Program(models.Model):
    name = models.CharField(max_length=51)

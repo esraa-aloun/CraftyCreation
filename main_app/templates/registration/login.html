@@ -1,14 +1,35 @@
+<style>
+    .container{
+        background: #8D98CD;
+        border-radius: 30px;
+        padding: 30px;
+        text-align: center;        
+    }
+    .btn_a{
+        position: relative;
+        background: #39556F;
+        width: 100px;
+        left: 50%;
+        top: 20%;
+        border-radius: 20px;
+        text-align: center;
+    }
+</style>
 {% extends 'base.html' %}
 {% block content %}
 
 <h1>LOGIN PAGE</h1>
 
-
-<form method="post" action="{% url 'login' %}">
+<div class="container">
+   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn" value="Login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+    <div class="btn_a">
+        <input type="submit" class="btn" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </div>
+</form> 
+</div>
+
 
 {% endblock %}

@@ -15,6 +15,7 @@ urlpatterns =[
     # path('studentList/<int:passed_program_id>', views. student_list.as_view(), name='studentList'),  
     path('program/', views.ProgramBrowse.as_view(), name='program'),
     path('programForInstructor/', views.ProgramList.as_view(), name='programForInstructor'),
+    # path('programdrop/', views.Drop, name='programdrop'),
     path('my_programs/', views.My_Programs.as_view(), name='my_programs'),
     path('addProgram/', views.ProgramCreate.as_view(), name='addProgram'),
     path('accounts/change_password/',PasswordChangeView.as_view(template_name='registration/change_password.html'), name ='change_password'),

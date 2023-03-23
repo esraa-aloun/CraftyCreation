@@ -1,14 +1,40 @@
+<style>
+    .container{
+   
+        background: #8D98CD;
+        border-radius: 30px;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+        
+
+    }
+    .container h1{
+        text-align: start;
+        font-weight: bolder;
+        padding: 20px;
+    }
+    .btn1{
+        position: relative;
+        background: #39556F;
+        width: 100px;
+        left: 50%;
+        top: -20px;
+        border-radius: 20px;
+        text-align: center;
+
+    }
+</style>
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="container">
 <h1>Signup PAGE</h1>
 
 
 <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn" value="Signup">
- 
+    <div class="btn1">
+        <input type="submit" class="btn" value="Signup">
+    </div>
 </form>
-
+</div>
 {% endblock %}
