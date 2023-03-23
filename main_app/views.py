@@ -96,6 +96,18 @@ class ProgramCreate(CreateView):
     
     def get_success_url(self):
         return reverse('addProgram')  
+
+# def ProgramCreate(request):
+#     if request.method == 'POST':
+#         form = AddProgramm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success('Program Added succsessfully to yor programms!')
+#         def get_success_url():
+#           return reverse('addProgram')  
+#     else:
+#         form = AddProgramm()
+#     return render(request, 'main_app/program_form.html', {'form': form})
     
 
 # # #  Uplaoding certificate

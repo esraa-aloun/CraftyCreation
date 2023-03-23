@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import Profile
+from .models import Profile, Category, Program
 
 UserRoles = (
     ('I','Instructor'),
@@ -34,7 +34,22 @@ class UserCreationForm(UserCreationForm):
             user.save()
         return user
     
-
+# LEVELS = (
+#     ('Beginner','Beginner'),
+#     ('Intermediate','Intermediate'),
+#     ('Expert','Expert')
+# )
+    
+# class AddProgramm(forms.ModelForm):
+#     cat_name = forms.ModelChoiceField(queryset=Category.objects.all())
+#     level = forms.ChoiceField(
+#            choices= LEVELS
+#         )
+#     class Meta:
+#         model = Program
+#         fields = ['name', 'description','start_date','end_date','duration','level','location','seats']
+        
+    
 # #  upload file form
 # class UploadFileForm(forms.Form):
 #     file= forms.FileField()
