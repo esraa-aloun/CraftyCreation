@@ -46,4 +46,7 @@ o	Adding program page : user is able to add and offer a program
 o	Enrolled students list : user is able to check the enrolled student 
 o	Profile view : user is able to view their profile , upload and image and edit the profile 
 o	Login and logout page 
+
+ERD: https://www.figma.com/file/dwxmOb7KsQsFzOxYHJL5zh/ERD-Model-for-CraftyCration?node-id=0%3A1&t=cc3nGWsYzrKcGPcG-1
+
  
